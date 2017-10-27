@@ -17,7 +17,7 @@ export class YouTubeSearchComponent implements OnInit {
 
   updateResults(results: SearchResult[]): void {
     this.results = results;
-    console.log(`{{results: ${results[0].thumbnail}`);
+    console.log(`{{results: ${results}`);
   }
   
 }

@@ -42,7 +42,7 @@ export class SearchBoxComponent implements OnInit {
       },
       //complete
       () => {
-        this.loading.emit(false);
+        this.loading.emit(false); 
       }
       );
 
