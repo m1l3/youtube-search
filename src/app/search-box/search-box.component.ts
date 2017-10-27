@@ -21,16 +21,16 @@ export class SearchBoxComponent implements OnInit {
   constructor(private youtube: YouTubeSearchService, private el: ElementRef) { }
 
   ngOnInit() {
+    
     Observable.fromEvent(this.el.nativeElement, 'keyup')
       .map((e: any) => e.target.value) //extract the value of the input
-      .filter((text: string) => text.length > 1) //do not emit any search strings with length less that one
+      .filter((text: string) => text.length > 3) //do not emit any search strings with length less that one
       .debounceTime(250) // throttle request that come in faster than 250ms (pause)
       .do(() => this.loading.emit(true)) //enable loading
       // search, discarding old events if new input comes in
       .map((query: string) => this.youtube.search(query)) //enable loading
       .switch() //“ignore all search events but the most recent”
       .subscribe(
-      //success
       (results: SearchResult[]) => {
         this.loading.emit(false);
         this.results.emit(results);
@@ -42,7 +42,7 @@ export class SearchBoxComponent implements OnInit {
       },
       //complete
       () => {
-        this.loading.emit(false); 
+        this.loading.emit(false);
       }
       );
 

@@ -13,4 +13,14 @@ export class SearchResult {
         this.videoUrl = obj         && obj.videoUrl || `https://www.youtube.com/watch?v=${this.id}`;
 
     }
+
+    toString(){
+        `
+        id: ${this.id}
+        title: ${this.title}
+        description: ${this.description}
+        thumbnailUrl: ${this.thumbnailUrl}
+        videoUrl: ${this.videoUrl}
+        `
+    }
 }

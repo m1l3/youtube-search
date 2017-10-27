@@ -17,7 +17,10 @@ export class YouTubeSearchComponent implements OnInit {
 
   updateResults(results: SearchResult[]): void {
     this.results = results;
-    console.log(`{{results: ${results}`);
+    
+    results.forEach(element => {
+      console.log(element);  
+    });
   }
   
 }
