@@ -4,7 +4,7 @@ import { SearchResult } from "app/search-result/search-result.model";
 import { Observable } from "rxjs/Observable";
 import 'rxjs/add/operator/map';
 
-export let YOU_TUBE_API_KEY: string = "API_KEEEY";
+export let YOU_TUBE_API_KEY: string = "AIzaSyDOfT_BO81aEZScosfTYMruJobmpjqNeEk";
 export let YOU_TUBE_API_URL: string = "https://www.googleapis.com/youtube/v3/search";
 
 @Injectable()
