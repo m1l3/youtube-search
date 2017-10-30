@@ -18,9 +18,13 @@ export class SearchBoxComponent implements OnInit {
   @Output() results: EventEmitter<SearchResult[]> = new EventEmitter<SearchResult[]>();
 
 
-  constructor(private youtube: YouTubeSearchService, private el: ElementRef) { }
+  constructor(private youtube: YouTubeSearchService, private el: ElementRef) {
+    console.log("SearchBoxComponent:constructor");
+   }
 
   ngOnInit() {
+
+    console.log("SearchBoxComponent:ngOnInit");
     
     Observable.fromEvent(this.el.nativeElement, 'keyup')
       .map((e: any) => e.target.value) //extract the value of the input
@@ -32,6 +36,7 @@ export class SearchBoxComponent implements OnInit {
       .switch() //“ignore all search events but the most recent”
       .subscribe(
       (results: SearchResult[]) => {
+        console.log("SearchBoxComponent:success");
         this.loading.emit(false);
         this.results.emit(results);
       },
@@ -40,8 +45,9 @@ export class SearchBoxComponent implements OnInit {
         console.log(err);
         this.loading.emit(false);
       },
-      //complete
+      //
       () => {
+        console.log("SearchBoxComponent:complete");
         this.loading.emit(false);
       }
       );

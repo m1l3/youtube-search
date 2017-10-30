@@ -18,6 +18,9 @@ export class YouTubeSearchService {
     }
 
     search(query: string): Observable<SearchResult[]> {
+
+    console.log("YouTubeSearchService:search");
+
         const params: string = [
             `q=${query}`,
             `key=${this.apiKey}`,

@@ -6,6 +6,7 @@ export class SearchResult {
     videoUrl: string;
 
     constructor(obj?: any){
+        console.log("SearchResult:constructor");
         this.id = obj               && obj.id || null;
         this.title = obj            && obj.title || null;
         this.description = obj      && obj.description || null;
